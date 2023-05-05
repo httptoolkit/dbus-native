@@ -84,7 +84,7 @@ function createConnection(opts) {
   stream.on('end', function() {
     self.emit('end');
     self.message = function() {
-      console.warn("Didn't write bytes to closed stream");
+      throw new Error("Can't write a message to a closed stream");
     };
   });
 
