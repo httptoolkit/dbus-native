@@ -40,13 +40,9 @@ function createStream(opts) {
           return net.createConnection(port, host);
         case 'unix':
           if (params.socket) return net.createConnection(params.socket);
-          if (params.abstract) {
-            var abs = require('abstract-socket');
-            return abs.connect('\u0000' + params.abstract);
-          }
           if (params.path) return net.createConnection(params.path);
           throw new Error(
-            "not enough parameters for 'unix' connection - you need to specify 'socket' or 'abstract' or 'path' parameter"
+            "not enough parameters for 'unix' connection - you need to specify 'socket' or 'path' parameter"
           );
         case 'unixexec':
           var eventStream = require('event-stream');

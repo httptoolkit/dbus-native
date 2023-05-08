@@ -9,11 +9,15 @@ This is a fork of [dbus-native](https://github.com/sidorares/dbus-native), aimin
 * Support for browser usage via WebSocket connections, in addition to Node.js
 * Support for skipping handshake authentication (as used by Frida)
 * Support for connecting via non-socket streams (as used by Frida's WebSocket API)
-* Automated testing via GitHub Actions
 * Type definitions included (and likely converting entirely to TypeScript in future)
 * Modernization:
+   * Automated testing via GitHub Actions
    * Promises everywhere
    * Dropping support for engines before Node v16 (ES2022)
+* Simplification:
+   * Dropped bin scripts
+   * Dropped various unused files
+   * Dropped examples
 * Improved error handling:
    * Throws an explicit error when sending a message to a closed stream, instead of silently never responding
 

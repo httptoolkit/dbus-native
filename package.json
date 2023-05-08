@@ -12,15 +12,13 @@
   ],
   "description": "D-bus protocol implementation in native javascript",
   "files": [
-    "bin/dbus2js.js",
     "lib/*",
     "index.js",
     "package.json"
   ],
   "directories": {
     "lib": "lib",
-    "test": "test",
-    "examples": "examples"
+    "test": "test"
   },
   "main": "index.js",
   "maintainers": [
@@ -34,9 +32,6 @@
     "type": "git",
     "url": "http://github.com/httptoolkit/dbus-native.git"
   },
-  "bin": {
-    "dbus2js": "./bin/dbus2js.js"
-  },
   "dependencies": {
     "event-stream": "^4.0.0",
     "hexy": "^0.2.10",
@@ -45,9 +40,6 @@
     "put": "0.0.6",
     "safe-buffer": "^5.1.1",
     "xml2js": "^0.4.17"
-  },
-  "optionalDependencies": {
-    "abstract-socket": "^2.0.0"
   },
   "devDependencies": {
     "mocha": "^10.2.0"
