@@ -1,7 +1,7 @@
 {
-  "name": "dbus-native",
-  "author": "Andrey Sidorov <sidorares@yandex.com>",
-  "version": "0.4.0",
+  "name": "@httptoolkit/dbus-native",
+  "author": "Tim Perry <tim@httptoolkit.com>",
+  "version": "0.0.0",
   "keywords": [
     "dbus",
     "dcop",
@@ -25,14 +25,14 @@
   "main": "index.js",
   "maintainers": [
     {
-      "name": "Andrey Sidorov",
-      "email": "sidoares@yandex.ru"
+      "name": "Tim Perry",
+      "email": "tim@httptoolkit.com"
     }
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "http://github.com/sidorares/node-dbus.git"
+    "url": "http://github.com/httptoolkit/dbus-native.git"
   },
   "bin": {
     "dbus2js": "./bin/dbus2js.js"
@@ -83,6 +83,6 @@
     "trailingComma": "none"
   },
   "engine": {
-    "node": ">=8.0"
+    "node": ">=16.0"
   }
 }

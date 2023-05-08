@@ -1,21 +1,32 @@
-node-dbus
-===========
+# @httptoolkit/dbus-native [![Build Status](https://github.com/httptoolkit/dbus-native/workflows/CI/badge.svg)](https://github.com/httptoolkit/dbus-native/actions)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/sidorares/dbus-native.svg)](https://greenkeeper.io/)
-D-bus protocol client and server for node.js
+> _Part of [HTTP Toolkit](https://httptoolkit.com): powerful tools for building, testing & debugging HTTP(S)_
 
-[![Build Status](https://secure.travis-ci.org/sidorares/dbus-native.png)](http://travis-ci.org/sidorares/dbus-native)
+Pure JS D-Bus protocol client & server for browsers (WIP) and Node.js.
+
+This is a fork of [dbus-native](https://github.com/sidorares/dbus-native), aiming to extend it for use in [frida-js](https://github.com/httptoolkit/frida-js/) and [HTTP Toolkit](https://github.com/httptoolkit/httptoolkit/) with:
+
+* Support for browser usage via WebSocket connections, in addition to Node.js
+* Support for skipping handshake authentication (as used by Frida)
+* Support for connecting via non-socket streams (as used by Frida's WebSocket API)
+* Automated testing via GitHub Actions
+* Type definitions included (and likely converting entirely to TypeScript in future)
+* Modernization:
+   * Promises everywhere
+   * Dropping support for engines before Node v16 (ES2022)
+* Improved error handling:
+   * Throws an explicit error when sending a message to a closed stream, instead of silently never responding
 
 Installation
 ------------
 
 ```shell
-npm install dbus-native
+npm install @httptoolkit/dbus-native
 ```
 or
 
 ```shell
-git clone https://github.com/sidorares/node-dbus # clone the repo
+git clone https://github.com/httptoolkit/node-dbus # clone the repo
 cd node-dbus
 npm install # install dependencies
 sudo cp examples/com.github.sidorares.dbus.Example.conf /etc/dbus-1/system.d/ # if you want to test examples/service.js
@@ -27,8 +38,8 @@ Usage
 Short example using desktop notifications service
 
 ```js
-var dbus = require('dbus-native');
-var sessionBus = dbus.sessionBus();
+const dbus = require('@httptoolkit/dbus-native');
+const sessionBus = dbus.sessionBus();
 sessionBus.getService('org.freedesktop.Notifications').getInterface(
     '/org/freedesktop/Notifications',
     'org.freedesktop.Notifications', function(err, notifications) {
@@ -86,8 +97,8 @@ connection signals:
 example:
 
 ```js
-var dbus = require('dbus-native');
-var conn = dbus.createConnection();
+const dbus = require('@httptoolkit/dbus-native');
+const conn = dbus.createConnection();
 conn.message({
     path:'/org/freedesktop/DBus',
     destination: 'org.freedesktop.DBus',
