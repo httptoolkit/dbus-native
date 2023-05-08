@@ -21,6 +21,7 @@
     "test": "test"
   },
   "main": "index.js",
+  "types": "types.d.ts",
   "maintainers": [
     {
       "name": "Tim Perry",
