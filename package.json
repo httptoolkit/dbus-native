@@ -22,19 +22,10 @@
   },
   "main": "index.js",
   "types": "types.d.ts",
-  "exports": {
-    "./lib/server.js": {
-      "browser": "./lib/server.browser.js",
-      "default": "./lib/server.js"
-    },
-    "./lib/create-stream.js": {
-      "browser": "./lib/create-stream.browser.js",
-      "default": "./lib/create-stream.js"
-    },
-    "./lib/handshake/cookie-auth.js": {
-      "browser": "./lib/cookie-auth.browser.js",
-      "default": "./lib/cookie-auth.js"
-    }
+  "browser": {
+    "./lib/server.js": "./lib/server.browser.js",
+    "./lib/create-stream.js": "./lib/create-stream.browser.js",
+    "./lib/handshake/cookie-auth.js": "./lib/handshake/cookie-auth.browser.js"
   },
   "maintainers": [
     {
