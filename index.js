@@ -4,8 +4,8 @@ const EventEmitter = require('events').EventEmitter;
 
 const constants = require('./lib/constants');
 const message = require('./lib/message');
-const clientHandshake = require('./lib/handshake');
-const serverHandshake = require('./lib/server-handshake');
+const clientHandshake = require('./lib/handshake/client-handshake');
+const serverHandshake = require('./lib/handshake/server-handshake');
 const MessageBus = require('./lib/bus');
 const server = require('./lib/server');
 const createStream = require('./lib/create-stream');

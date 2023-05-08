@@ -30,6 +30,10 @@
     "./lib/create-stream.js": {
       "browser": "./lib/create-stream.browser.js",
       "default": "./lib/create-stream.js"
+    },
+    "./lib/handshake/cookie-auth.js": {
+      "browser": "./lib/cookie-auth.browser.js",
+      "default": "./lib/cookie-auth.js"
     }
   },
   "maintainers": [
