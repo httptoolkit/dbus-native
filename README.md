@@ -2,7 +2,7 @@
 
 > _Part of [HTTP Toolkit](https://httptoolkit.com): powerful tools for building, testing & debugging HTTP(S)_
 
-Pure JS D-Bus protocol client & server for browsers (WIP) and Node.js.
+Pure JS D-Bus protocol client & server for browsers and Node.js.
 
 This is a fork of [dbus-native](https://github.com/sidorares/dbus-native), aiming to extend it for use in [frida-js](https://github.com/httptoolkit/frida-js/) and [HTTP Toolkit](https://github.com/httptoolkit/httptoolkit/) with:
 
@@ -14,6 +14,7 @@ This is a fork of [dbus-native](https://github.com/sidorares/dbus-native), aimin
    * Automated testing via GitHub Actions
    * Promises everywhere
    * Dropping support for engines before Node v16 (ES2022)
+   * Replaced xml2js with fast-xml-parser (faster, smaller, better browser compat)
 * Simplification:
    * Dropped bin scripts
    * Dropped various unused files
