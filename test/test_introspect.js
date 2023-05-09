@@ -26,34 +26,26 @@ function testXml(fname) {
       fs.readFile(fpath + '.xml', function(err, xml_data) {
         if (err) reject(err);
         else {
-          introspect.processXML(err, xml_data, dummyObj, function(
-            err,
-            proxy,
-            nodes
-          ) {
-            if (err) reject(err);
-            else {
-              checkIntrospection(test_obj, proxy, nodes);
-              resolve();
-            }
-          });
+          const result = introspect.processXML(xml_data, dummyObj);
+          const { interfaces, nodes } = result;
+          checkIntrospection(test_obj, interfaces, nodes);
+          resolve();
         }
       });
     });
   });
 }
 
-/*eslint no-unused-vars: ["error", { "argsIgnorePattern": "^_" }]*/
-function checkIntrospection(test_obj, proxy, _nodes) {
-  for (var i = 0; i < test_obj.interfaces.length; ++i) {
-    var testInterface = test_obj.interfaces[i];
-    if (proxy[testInterface.name] === undefined)
+function checkIntrospection(test_obj, parsedInterfaces, _nodes) {
+  for (let i = 0; i < test_obj.interfaces.length; ++i) {
+    const testInterface = test_obj.interfaces[i];
+    if (parsedInterfaces[testInterface.name] === undefined)
       throw new Error(
         'Failed to introspect interface name ' + testInterface.name
       );
     for (var m = 0; m < testInterface.methods.length; ++m) {
-      var methodName = testInterface.methods[m].name;
-      var curMethod = proxy[testInterface.name].$methods[methodName];
+      const methodName = testInterface.methods[m].name;
+      const curMethod = parsedInterfaces[testInterface.name].$methods[methodName];
       if (curMethod === undefined)
         throw new Error(
           'Failed to introspect method name ' +
@@ -69,9 +61,9 @@ function checkIntrospection(test_obj, proxy, _nodes) {
             testInterface.name
         );
     }
-    for (var p = 0; p < testInterface.properties.length; ++p) {
-      var propName = testInterface.properties[p].name;
-      var curProp = proxy[testInterface.name].$properties[propName];
+    for (let p = 0; p < testInterface.properties.length; ++p) {
+      const propName = testInterface.properties[p].name;
+      const curProp = parsedInterfaces[testInterface.name].$properties[propName];
       if (curProp === undefined)
         throw new Error(
           'Failed to introspect property name ' +
