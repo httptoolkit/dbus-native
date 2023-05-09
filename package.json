@@ -14,7 +14,7 @@
   "files": [
     "lib/*",
     "index.js",
-    "package.json"
+    "types.d.ts"
   ],
   "directories": {
     "lib": "lib",
