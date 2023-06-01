@@ -8,6 +8,7 @@ export function createClient(options: {
 
 export interface DBusClient {
     getService(name: string): DBusService;
+    disconnect(): Promise<void>;
 }
 
 export interface DBusService {
