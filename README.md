@@ -21,6 +21,7 @@ This is a fork of [dbus-native](https://github.com/sidorares/dbus-native), aimin
    * Dropped examples
 * Improved error handling:
    * Throws an explicit error when sending a message to a closed stream, instead of silently never responding
+   * Turn D-Bus error responses into proper error instances where possible (rather than throwing arrays of strings)
 
 Installation
 ------------
