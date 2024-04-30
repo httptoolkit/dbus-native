@@ -1,7 +1,7 @@
 {
   "name": "@httptoolkit/dbus-native",
   "author": "Tim Perry <tim@httptoolkit.com>",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "dbus",
     "dcop",
