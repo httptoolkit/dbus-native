@@ -7,6 +7,7 @@ export function createClient(options: {
 }): DBusClient;
 
 export interface DBusClient {
+    setMethodCallHandler: (objectPath: string, iface: string, member: string, handler: [(args: any[]) => void, any]) => void;
     getService(name: string): DBusService;
     disconnect(): Promise<void>;
 }
